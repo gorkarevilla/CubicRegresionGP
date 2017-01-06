@@ -6,7 +6,7 @@ import org.epochx.gp.model.Regression;
  * GP model for a cubic symbolic regression problem.
  * 
  * <p>
- * The target program is the function: x + x^2 + x^3
+ * The target program is the function: x^3 + 2x^2 + x
  */
 public class CubicRegression extends Regression {
 
@@ -30,6 +30,6 @@ public class CubicRegression extends Regression {
 	 */
 	@Override
 	public double getCorrectResult(final double x) {
-		return x + 2* x * x + x * x * x;
+		return x * x * x + 2* x * x + x;
 	}
 }
