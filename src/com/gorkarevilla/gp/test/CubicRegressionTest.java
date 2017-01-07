@@ -16,7 +16,7 @@ public class CubicRegressionTest {
 
 	private static final boolean DEBUG = true;
 
-	private static final String CSVFILE = "stats.txt";
+	private static final String CSVFILE = "stats.csv";
 
 	/*
 	 * No Modificable Variables
@@ -46,6 +46,23 @@ public class CubicRegressionTest {
 	// Average of Succesfully reach the fitness
 	private static double averageHit = 0;
 
+	/**
+	 * 
+	 * Can be set by parameters:
+	 * @param args
+	 * - Population Size
+	 * - Number of Max Generations
+	 * - Max Depth of the tree
+	 * - Mutation Probability
+	 * 
+	 * If no argument is defined the default parameters are:
+	 * - Population Size = 500
+	 * - Max Generations = 100
+	 * - Max Depth = 8
+	 * - Mutation Probability = 0.1 
+	 * 
+	 * 
+	 */
 	public static void main(String[] args) {
 
 		// If are parameters
@@ -121,9 +138,10 @@ public class CubicRegressionTest {
 	}
 
 	/**
+	 * Store each execution data in the array
 	 * 
-	 * @param genNumber
-	 * @param fitness
+	 * @param genNumber Number of Generations needed in that execution
+	 * @param fitness the final Fitness value 
 	 */
 	private static void storeData(int runNumber, int genNumber, double fitness) {
 		// If get the goal
@@ -136,7 +154,7 @@ public class CubicRegressionTest {
 	}
 
 	/**
-	 * 
+	 * Store in averageHit variable the average of all the data stored in the array
 	 */
 	private static void setAverageHit() {
 		// Get the average of all the data
@@ -149,6 +167,9 @@ public class CubicRegressionTest {
 		averageHit = total / data.length;
 	}
 
+	/**
+	 * Add one line in the output CSV file with the information of the execution
+	 */
 	private static void writeCSV() {
 
 		// Write in the CSV file the variables and the result
@@ -170,7 +191,7 @@ public class CubicRegressionTest {
 			fw.close();
 
 			if (DEBUG)
-				System.out.print("Writting Successful.");
+				System.out.println("Writting Successful.");
 		} catch (IOException e) {
 
 			System.err.println("Error writting in the file");
