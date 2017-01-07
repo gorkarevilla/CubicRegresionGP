@@ -24,7 +24,7 @@ public class CubicRegressionTest {
 	// random points to test.
 	private static int noPoints = 4;
 	// number of Runs (times to repeat the generations).
-	private static int noRun = 4;
+	private static int noRun = 5;
 
 	/*
 	 * Modificable Variables
